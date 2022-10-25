@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //方法1 新建一个类
+        // class Star{
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+        // }
+        // let lcw = new Star('梁朝伟')
+        // console.log(lcw.name)
+
+        //方法2 使用构造函数创建对象
+    function Star(name,age,sex,hobbit){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.hobbit = hobbit;
+    }
+
+    //将方法写在原型对象中而不是构造函数中 避免每次调用都产生新的内存
+    Star.prototype.sing = function(song){
+            console.log(song)
+            return song
+        }
+    let cz = new Star('chanz',18,'man');
+    console.log(cz)
+    cz.sing('humble')
+    console.log(cz.__proto__==Star.prototype)
+    </script>
+</body>
+</html>
