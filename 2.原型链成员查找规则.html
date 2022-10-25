@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Star(name,age,hobbit){
+        this.name = name;
+        this.age = age;
+        this.hobbit = hobbit;
+    }
+    
+    //当实例对象中的成员与原型对象中成员冲突时，优先使用实例对象中成员（就近原则）
+    Star.prototype.sex = '女'
+    let cz = new Star('chanz',18);
+    cz.sex = '男'
+    console.log(cz)
+    console.log(cz.sex)
+    </script>
+</body>
+</html>

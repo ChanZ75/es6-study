@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let that1
+    let that2
+
+    function Star(name,age,sex,hobbit){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.hobbit = hobbit;
+        that1 = this;
+    }
+    //构造函数中的this及原型对象函数中的this指向实例对象 通常谁调用指向谁
+    Star.prototype.sing = function(song){
+            console.log(song)
+            that2 = this;
+        }
+    
+    //构造函数中的this指向最后通过构造函数生成的实例对象 
+    let cz = new Star('chanz',18,'man');
+    let hcj = new Star('hcj',18)
+    console.log(that1 === cz)    //false
+    console.log(that1 === hcj)    //true
+
+    //谁最后调用原型对象中的函数 this就指向谁
+    hcj.sing('swag')
+    cz.sing('humble')
+    console.log(that2 === cz)    //true
+    console.log(that2 === hcj)   //false
+    
+
+    </script>
+</body>
+</html>

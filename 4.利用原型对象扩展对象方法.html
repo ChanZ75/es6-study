@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = [0, 1, 2, 3, 5, 100];
+      //在Array原型对象中扩展一个求数组偶数和的方法
+      Array.prototype.sum = function sum() {
+        let sum = 0;
+        for (i = 0; i < this.length; i++) {
+          if (this[i] % 2 == 0) {
+            sum += this[i];
+          }
+        }
+        return sum;
+      }
+    
+      console.log(a.sum())
+
+      //对比传统方法
+      function sum1(arr){
+        let sum1 = 0;
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 == 0) {
+            sum1 += arr[i];
+          }
+        }
+        return sum1;
+      }
+
+      console.log(sum1(a))
+    </script>
+  </body>
+</html>
