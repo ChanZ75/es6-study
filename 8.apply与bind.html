@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //apply第一个参数为改变函数this指向，若不需要改变传null，或重新指回原对象
+      //apply第二个参数只能传数组，函数执行后解开，如纯数字数组传递后得到的是数字格式，所以可用Math.max求最大、最小值
+      let arr = [1, 2, 3, 5, 8, 7];
+      const max = Math.max.apply(Math, arr);
+      const min = Math.min.apply(Math, arr);
+      console.log(max, min); //8 1
+
+      //bind 与apply、call的区别是bind并不会调用函数，只改变函数this的指向，并且返回的新函数是原函数改变this指向后的拷贝
+      let o = {
+        name: "chanz",
+      };
+      function fn() {
+        console.log("123");
+        console.log(this)
+      }
+      let f = fn.bind(o);
+      f(); //this为o
+      fn();//this为Window
+    </script>
+  </body>
+</html>

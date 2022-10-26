@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [11, 22, 33, 44, 5];
+      let arr2 = [1, 22, 33, "cz"];
+      //forEach用法 遍历数组 返回值是原数组
+      let sum = 0;
+      arr.forEach((value) => {
+        sum += value;
+      });
+      console.log(sum);
+
+      //filter用法 根据条件筛选数组 返回值是符合条件的新数组
+      arr1 = arr.filter((value, index) => {
+        return value % 2 == 0;
+      });
+      console.log(arr1);
+
+      //some用法 查找数组中是否有满足条件的元素(找到第一个满足条件的元素时返回true且不再继续查找) 返回值是布尔值
+      const iscz = arr2.some((value) => {
+        return value == "cz";
+      });
+      console.log(iscz);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 父构造函数
+      function Father(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      Father.prototype.money = function () {
+        console.log(10000);
+      };
+
+      // 子构造函数
+      function Son(name, age) {
+        Father.call(this, name, age);  //call方法可以改变函数中this指向，指向为call方法中的第一个参数，该this为子构造函数
+      }
+
+      Son.prototype.exam = function () {
+        console.log(99);
+      };
+      Son.prototype = new Father(); //把Father实例对象赋给Son的原型对象，使Son的实例对象可以调用Father原型对象上的方法
+      //子构造函数继承了父构造函数的name, age属性
+      let a = new Son("abc", 18);
+      Son.prototype.constructor = Son; //把Father实例对象赋给Son的原型对象后，Son原型对象的constructor发生变化，需要手动将其指回Son
+      a.money();
+      console.log(a);
+      console.log(Son.prototype.constructor);
+    </script>
+  </body>
+</html>
