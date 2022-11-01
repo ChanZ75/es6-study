@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body>
+    <button>点击</button>
     <script>
       //apply第一个参数为改变函数this指向，若不需要改变传null，或重新指回原对象
       //apply第二个参数只能传数组，函数执行后解开，如纯数字数组传递后得到的是数字格式，所以可用Math.max求最大、最小值
@@ -16,6 +17,7 @@
       console.log(max, min); //8 1
 
       //bind 与apply、call的区别是bind并不会调用函数，只改变函数this的指向，并且返回的新函数是原函数改变this指向后的拷贝
+      //当不需要调用但想改变函数this指向时使用bind
       let o = {
         name: "chanz",
       };
@@ -26,6 +28,16 @@
       let f = fn.bind(o);
       f(); //this为o
       fn();//this为Window
+
+      //bind实例：点击一个按钮后马上禁用，3秒后开启这个按钮
+      let btn = document.querySelector('button')
+      btn.onclick = function(){
+        this.disabled = true;
+        setTimeout(function(){
+            // this.disabled = false //setTimeout中this指向Window 所以无法开启按钮
+            this.disabled = false
+        }.bind(this),3000)//使用让定时器的this指向btn，这个this处于定时器外，btn里所以指向btn
+      }
     </script>
   </body>
 </html>

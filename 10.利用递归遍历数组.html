@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let data = [
+        {
+          id: 1,
+          name: "aaa",
+          cz: [
+            {
+              id: 11,
+              name: "bbb",
+            },
+            {
+              id: 12,
+              name: "ccc",
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: "ddd",
+        },
+      ];
+      //输入id号，返回相应的对象
+      function getID(json, id) {
+        json.forEach((item) => {
+          if (item.id == id) {
+            console.log(item);
+          }
+          //想得到里层数据 11 12 可以利用递归函数实现
+          else if (item.cz && item.cz.length > 0) {
+            getID(item.cz,11)
+          }
+        });
+      }
+      getID(data, 11);
+    </script>
+  </body>
+</html>

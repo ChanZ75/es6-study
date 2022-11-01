@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1、利用RegExp对象来创建正则表达式
+        let regexp = new RegExp(/123/)
+        console.log(regexp)
+        //2、利用字面量创建正则表达式
+        let rg = /123/
+        //test方法用于检测文本是否符合写的正则表达式规范 参数为需要测试的文本 符合返回true 不符合返回false
+        console.log(rg.test(123))
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //递归函数就是自己内部调用自己的函数
+      let num = 1;
+      function fn() {
+        console.log("输出这句话6次");
+        if (num == 6) {
+          return; //递归函数里必须加退出条件，否则会发生栈溢出的情况
+        }
+        num++;
+        fn();
+      }
+      fn();
+
+      //利用递归求n的阶乘
+      function f(n) {
+        if (n == 1) {
+          return 1;
+        }
+        return n * f(n - 1);
+      }
+      console.log(f(3));
+      console.log(f(6));
+      //   思路：假如用户输入的是3
+      //   第一次return 3*f(3-1) => 3*f(2) => 3*[2*f(2-1)] => 3*[2*f(1)] 当n=1时return 1 => 3*2*1=6
+
+      //利用递归求斐波那契数列，输入n可以求出这个数字对应的斐波那契数列值1,1,2,3,5,8,13,21......
+      function fb(n) {
+        if (n == 1 || n == 2) {
+          return 1;
+        }
+        return fb(n - 1) + fb(n - 2);
+      }
+      console.log(fb(6))
+    </script>
+  </body>
+</html>
