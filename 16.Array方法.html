@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Array.from可将伪数组转化为数组
+      let arrayLike = {
+        0: 1,
+        1: 2,
+        2: 3,
+        length: 3,
+      };
+      let arr = Array.from(arrayLike);
+      console.log(arr); //[1,2,3]
+      //Array.from可以传两个参数，第一个为伪数组，第二个为函数，可对数组中每一个元素进行运算处理
+      let arr1 = Array.from(arrayLike, (item) => item * 2);
+      console.log(arr1); //[2,4,6]
+
+      //Array.find可以在数组中查找我们需要的元素
+      let arr2 = [
+        {
+          id: 1,
+          name: "aa",
+        },
+        {
+          id: 2,
+          name: "bb",
+        },
+      ];
+      let arr3 = arr2.find((item) => item.id == "2"); //如果不存在则返回undefind
+      console.log(arr3);
+
+      //Array.findIndex可以找出第一个符合条件的数组元素位置，如果没有则返回-1
+      //Array.findLastIndex可以找出最后一个符合条件的数组元素位置，如果没有则返回-1
+      let arr4 = [1, 3, 8, 11];
+      let a = arr4.findIndex((value) => value > 7);
+      let b = arr4.findLastIndex((value) => value > 7);
+      console.log(a); //2
+      console.log(b); //3
+
+      //Array.includes判断数组是否包含指定元素，返回一个布尔值
+      console.log(arr4.includes(1)); //true
+      console.log(arr4.includes(2)); //false
+    </script>
+  </body>
+</html>

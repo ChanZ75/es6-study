@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //箭头函数是用来简化函数定义语法的
+      const fn = () => {
+        console.log(123);
+      };
+      fn();
+
+      //函数体中只有一句代码，且结果就是返回值时，可以省略大括号
+      const sum = (num1, num2) => num1 + num2;
+      const a = sum(1, 2);
+      console.log(a);
+
+      //如果形参只有一个，可以省略小括号
+      const f = a => a + 1;
+      console.log(f(1));
+
+      //箭头函数的this指向的是函数定义位置上下文的this
+      const obj = { name: "cz" };
+      function fun() {
+        console.log(this); //此this为obj
+        return () => {
+          console.log(this); //箭头函数中this在fun中被定义 所以this与fun中this相同 为obj
+        };
+      }
+      const resFun = fun.call(obj);
+      resFun();
+
+      //Object不产生作用域，所以箭头函数定义在obj1内时，this指向全局，所以this.name为'123'
+      var name11 = '123'
+      const obj1 = {
+        name11: "111",
+        say: () => {
+          alert(this.name11);
+        },
+      };
+      obj1.say();
+    </script>
+  </body>
+</html>

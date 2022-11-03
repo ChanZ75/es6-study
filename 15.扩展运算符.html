@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //扩展运算符可以将数组拆分成以逗号分割的参数序列
+      let arr = ["a", "b", "c"];
+      //...arr = 'a','b','c' 当将...arr作为console.log的参数时，数组中原本的逗号将作为console.log中分隔参数的逗号
+      console.log(...arr); //所以输出结果为a b c
+
+      //合并数组
+      //方法1
+      let arr1 = ["a", "b", "c"];
+      let arr2 = ["x", "y", "z"];
+      let arr3 = [...arr1, ...arr2];
+      console.log(arr3); //['a', 'b', 'c', 'x', 'y', 'z']
+      //方法2
+      arr1.push(...arr2)
+      console.log(arr1)
+
+      //扩展运算符可以将伪数组变为真正的数组
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //模板字符串中可以解析变量
+        let name = 'cz'
+        let say = `my name is ${name}`;
+        console.log(say)
+
+        //模板字符串中可以调用函数 花括号中展示的值为函数的返回值
+        const sayhello = function(){
+            return 'hello'
+        }
+        const a = `${sayhello()}!!!!`
+        console.log(a)
+    </script>
+</body>
+</html>

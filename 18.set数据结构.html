@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Set本身是一个构造函数，用来生成Set数据结构，可接受一个数组作为参数用来初始化
+      const s = new Set([1, 2, 3, 4, 5, 5]);
+      console.log(s); //{1,2,3,4,5} size:5
+
+      //Set可用于数组去重
+      const arr = [...s];
+      console.log(arr); //[1,2,3,4,5]重复的5被去除
+
+      //add 向Set结构中添加值
+      s.add(6);
+      console.log(s); //{1,2,3,4,5,6}返回的是添加之后的Set本身
+
+      //delete 删除Set结构中的某个值 返回的是布尔值 表示是否删除成功
+      const a = s.delete(6);
+      console.log(s); //{1,2,3,4,5}
+      console.log(a); //true
+
+      //has 判断Set结构中是否有某个值 返回布尔值
+      const b = s.has(1);
+      const c = s.has(9);
+      console.log(b); //true
+      console.log(c); //false
+
+      //Set与数组一样都可用forEach进行遍历
+      s.forEach((value) => {
+        console.log(value);
+      });
+
+      //clear 清楚所有成员 没有返回值
+      s.clear();
+      console.log(s); //size:0
+    </script>
+  </body>
+</html>
